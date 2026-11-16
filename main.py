@@ -1,6 +1,7 @@
 import streamlit as st
 import time
 import random
+import base64
 
 st.set_page_config(page_title="For my favorite person ❤️", page_icon="🎂", layout="centered")
 
@@ -22,13 +23,6 @@ st.markdown(f"""<style>
     overflow-x: hidden;
 }}
 header {{visibility: hidden;}}
-
-/* 讓播放器淡化縮小，避免 Safari 因為 display:none 而阻擋播放 */
-div[data-testid="stAudio"] {{
-    opacity: 0.25;
-    transform: scale(0.85);
-    margin-top: 10px;
-}}
 
 @keyframes fall {{
     0% {{ transform: translateY(-10vh) translateX(0px) rotate(0deg); opacity: 0.9; }}
@@ -142,10 +136,15 @@ if clicked:
     st.balloons()
     st.snow()
 
-    # 直接讀取同層目錄的 song01.m4a 並以位元組載入，確保雲端穩定播放
-    with open("song01.m4a", "rb") as audio_file:
-        audio_bytes = audio_file.read()
-    st.audio(audio_bytes, format="audio/mp4", autoplay=True, loop=True)
+    # 將 song01.m4a 轉為 Base64 內嵌並使用隱藏式 HTML5 播放器自動循環播放
+    with open("song01.m4a", "rb") as f:
+        b64_audio = base64.b64encode(f.read()).decode()
+
+    st.markdown(f"""
+        <audio autoplay loop style="display:none;">
+            <source src="data:audio/mp4;base64,{b64_audio}" type="audio/mp4">
+        </audio>
+    """, unsafe_allow_html=True)
 
     st.markdown("""<div class="secret-letter-box">
 <p>This is my first time celebrating your birthday with u. To me, today isn't just about your birthday, it's also about us being together for 5 months.</p>
