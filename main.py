@@ -1,5 +1,4 @@
 import streamlit as st
-import streamlit.components.v1 as components
 import time
 import random
 import base64
@@ -36,26 +35,23 @@ c7 = '.love-letter-card { background: linear-gradient(145deg, rgba(255,252,253,0
 c8 = '.baby-footer { text-align: center; background: linear-gradient(90deg, #a81c46, #d94673, #a81c46); -webkit-background-clip: text; -webkit-text-fill-color: transparent; font-family: "Playfair Display", serif; font-size: 28px; font-weight: 700; letter-spacing: 2.5px; margin-top: 22px; }'
 c9 = '.secret-letter-box { background: linear-gradient(180deg, rgba(255,253,254,0.97) 0%, rgba(255,244,247,0.95) 100%); backdrop-filter: blur(16px); color: #6e1832; padding: 38px 40px; border-radius: 26px; font-family: "Lora", Georgia, serif; font-size: 17px; line-height: 1.95; text-align: left; box-shadow: 0 18px 45px rgba(181,43,85,0.16); border: 1.5px solid #f5a3bc; margin-top: 28px; margin-bottom: 45px; }'
 c10 = '.secret-letter-header { text-align: center; color: #c93863; font-family: "Great Vibes", cursive; font-size: 38px; margin-bottom: 18px; border-bottom: 1px dashed rgba(229,107,150,0.4); padding-bottom: 10px; } .secret-letter-box p { margin-bottom: 16px; } .secret-letter-sign { text-align: right; font-family: "Playfair Display", serif; font-style: italic; font-weight: 600; color: #b52b55; font-size: 18.5px; margin-top: 20px; margin-bottom: 0 !important; }'
-c11 = 'div[data-testid="stProgress"] > div > div > div > div { background-color: #e0527d !important; } div.stButton { position: relative; z-index: 99999 !important; } div.stButton > button { background: linear-gradient(135deg, #f2799b 0%, #d9436e 100%); color: #fff8fa !important; font-family: "Lora", serif; letter-spacing: 0.8px; border: 1px solid rgba(255,255,255,0.5); border-radius: 30px; padding: 14px 26px; font-weight: 600; line-height: 1.45; box-shadow: 0 8px 22px rgba(217,67,110,0.3); cursor: pointer !important; } iframe[height="0"] { display: none !important; }</style>'
+c11 = 'div[data-testid="stProgress"] > div > div > div > div { background-color: #e0527d !important; } div.stButton { position: relative; z-index: 99999 !important; } div.stButton > button { background: linear-gradient(135deg, #f2799b 0%, #d9436e 100%); color: #fff8fa !important; font-family: "Lora", serif; letter-spacing: 0.8px; border: 1px solid rgba(255,255,255,0.5); border-radius: 30px; padding: 14px 26px; font-weight: 600; line-height: 1.45; box-shadow: 0 8px 22px rgba(217,67,110,0.3); cursor: pointer !important; }</style>'
 
 css = c1 + c2 + c3 + c4 + c5 + c6 + c7 + c8 + c9 + c10 + c11
 
 st.markdown(css + bg_svg + falling_html, unsafe_allow_html=True)
 
-# 1. 網頁載入當下就先把音檔放進頁面緩衝（preload="auto"），趁跑進度條的 2 秒先下載解碼完畢
-st.markdown(f'<audio id="bgm" preload="auto" loop style="display:none;"><source src="data:audio/mp4;base64,{b64_audio}" type="audio/mp4"></audio>', unsafe_allow_html=True)
+if "done_load" not in st.session_state: st.session_state.done_load = False
 
-progress_bar = st.progress(0)
+progress_bar = st.progress(0) if not st.session_state.done_load else None
 status_placeholder = st.empty()
 
-_ = list(map(lambda i: (status_placeholder.markdown(f'<div style="text-align:center;color:#d9436e;font-family:Lora,serif;font-style:italic;font-size:17px;margin-top:40px;">💖 Loading babe\'s Birthday Surprise... {i + 1}%</div>', unsafe_allow_html=True), progress_bar.progress(i + 1), time.sleep(0.02)), range(100)))
+if not st.session_state.done_load: _ = list(map(lambda i: (status_placeholder.markdown(f'<div style="text-align:center;color:#d9436e;font-family:Lora,serif;font-style:italic;font-size:17px;margin-top:40px;">💖 Loading babe\'s Birthday Surprise... {i + 1}%</div>', unsafe_allow_html=True), progress_bar.progress(i + 1), time.sleep(0.02)), range(100))); progress_bar.empty(); st.session_state.done_load = True
 
-progress_bar.empty()
 title_html = '<div class="title-wrap"><span class="title-line-l"></span><span class="title-ornament">✦ ♡</span><span class="status-box">You &amp; Me</span><span class="title-ornament">♡ ✦</span><span class="title-line-r"></span></div>'
 status_placeholder.markdown(title_html, unsafe_allow_html=True)
 
-st.balloons()
-st.snow()
+if "first_fx" not in st.session_state: st.balloons(); st.snow(); st.session_state.first_fx = True
 
 st.markdown('<div class="love-letter-card">“You are forever in my heart.” ❤️</div>', unsafe_allow_html=True)
 st.markdown('<div class="baby-footer">HAPPY BIRTHDAY, MY GIRL. ❤️</div>', unsafe_allow_html=True)
@@ -71,4 +67,4 @@ l4 = "<p>Every day in the future, I also wanna make new memories with u, and jus
 l5 = '<p class="secret-letter-sign">Having u in my life makes everything better. Happy Birthday, babe!</p></div>'
 letter_html = l1 + l2 + l3 + l4 + l5
 
-# 2. 點擊按鈕後進度條跑完的一瞬間，直接用 JS 播放已經預載好的 #bgm（0 秒延遲）
+if clicked: st.markdown(letter_html, unsafe_allow_html=True)
