@@ -1,4 +1,5 @@
 import streamlit as st
+import streamlit.components.v1 as components
 import time
 import random
 import base64
@@ -67,10 +68,12 @@ header, [data-testid="stHeader"] { background: transparent !important; visibilit
 div[data-testid="stProgress"] > div > div > div > div { background-color: #e0527d !important; }
 div.stButton > button { background: linear-gradient(135deg, #f2799b 0%, #d9436e 100%); color: #fff8fa !important; font-family: 'Lora', serif; letter-spacing: 0.8px; border: 1px solid rgba(255,255,255,0.5); border-radius: 30px; padding: 14px 26px; font-weight: 600; line-height: 1.45; box-shadow: 0 8px 22px rgba(217,67,110,0.3); transition: all 0.35s ease; }
 div.stButton > button:hover { transform: translateY(-2px) scale(1.02); box-shadow: 0 12px 28px rgba(217,67,110,0.45); }
+iframe[height="0"] { display: none !important; }
 </style>"""
 
 st.markdown(css + bg_svg + falling_html, unsafe_allow_html=True)
 
+audio_slot = st.empty()
 progress_bar = st.progress(0)
 status_placeholder = st.empty()
 
@@ -98,5 +101,3 @@ letter_html = """<div class="secret-letter-box">
 <p class="secret-letter-sign">Having u in my life makes everything better. Happy Birthday, babe!</p>
 </div>"""
 
-if clicked: st.balloons(); st.snow(); st.markdown(letter_html, unsafe_allow_html=True)
-if clicked: st.markdown(f'<audio autoplay loop style="display:none;"><source src="data:audio/mp4;base64,{b64_audio}" type="audio/mp4"></audio>', unsafe_allow_html=True)
