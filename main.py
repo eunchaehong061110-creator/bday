@@ -5,6 +5,12 @@ import base64
 
 st.set_page_config(page_title="For my loml ❤️", page_icon="🎂", layout="centered")
 
+@st.cache_data
+def load_audio_b64(path):
+    with open(path, "rb") as f: return base64.b64encode(f.read()).decode()
+
+b64_song = load_audio_b64("song01.m4a")
+
 bg_svg = """
 <div class="bg-illu"><svg xmlns="http://w3.org" width="100%" height="100%" viewBox="0 0 1440 900" preserveAspectRatio="xMidYMid slice">
 <defs>
@@ -92,7 +98,4 @@ letter_html = """<div class="secret-letter-box">
 <p class="secret-letter-sign">Having u in my life makes everything better. Happy Birthday, babe!</p>
 </div>"""
 
-if clicked: st.balloons(); st.snow(); st.markdown(letter_html, unsafe_allow_html=True)
-
-b64_audio = base64.b64encode(open("song01.m4a", "rb").read()).decode() if clicked else ""
-if b64_audio: st.markdown(f'<audio autoplay loop style="display:none;"><source src="data:audio/mp4;base64,{b64_audio}" type="audio/mp4"></audio>', unsafe_allow_html=True)
+if clicked: st.markdown(f'<audio autoplay loop preload="auto" style="display:none;"><source src="data:audio/mp4;base64,{b64_song}" type="audio/mp4"></audio>', unsafe_allow_html=True); st.balloons(); st.snow(); st.markdown(letter_html, unsafe_allow_html=True)
