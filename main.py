@@ -65,9 +65,9 @@ bg_illustration_html = """
 </div>
 """
 
-icons = ["❄️", "❤️", "🌸", "✨", "🎈"]
+icons = ("❄️", "❤️", "🌸", "✨", "🎈")
 random.seed(520)
-falling_html = "".join([f'<div class="falling-item" style="left:{random.randint(2, 96)}%;font-size:{random.randint(15, 24)}px;animation-duration:{round(random.uniform(7.0, 13.0), 1)}s;animation-delay:{round(random.uniform(-12.0, 0.0), 1)}s;">{random.choice(icons)}</div>' for _ in range(30)])
+falling_html = "".join(f'<div class="falling-item" style="left:{random.randint(2, 96)}%;font-size:{random.randint(15, 24)}px;animation-duration:{round(random.uniform(7.0, 13.0), 1)}s;animation-delay:{round(random.uniform(-12.0, 0.0), 1)}s;">{random.choice(icons)}</div>' for _ in range(30))
 
 custom_css = """
 <style>
@@ -204,4 +204,3 @@ st.write("")
 col1, col2, col3 = st.columns(3)
 clicked = col2.button("ポチッとな！\n\nBoop me~ 🐾", use_container_width=True)
 
-audio_files = glob.glob("**/song01.m4a", recursive=True)
