@@ -1,15 +1,14 @@
 import streamlit as st
 import time
 import random
-import base64
 
 st.set_page_config(page_title="For my loml ❤️", page_icon="🎂", layout="centered")
 
 @st.cache_data
-def get_song(path):
-    with open(path, "rb") as f: return base64.b64encode(f.read()).decode()
+def get_song_bytes(path):
+    with open(path, "rb") as f: return f.read()
 
-b64_audio = get_song("song01.m4a")
+audio_bytes = get_song_bytes("song01.m4a")
 
 bg_svg = """
 <div class="bg-illu"><svg xmlns="http://w3.org" width="100%" height="100%" viewBox="0 0 1440 900" preserveAspectRatio="xMidYMid slice">
@@ -48,6 +47,7 @@ css = """<style>
 @import url('https://googleapis.com');
 .stApp, [data-testid="stAppViewContainer"] { background: radial-gradient(circle at top left, #fff0f4 0%, #ffe0e9 45%, #ffd1df 100%) !important; overflow-x: hidden; }
 header, [data-testid="stHeader"] { background: transparent !important; visibility: hidden; }
+div[data-testid="stAudio"] { display: none !important; }
 @keyframes gfloat { 0%,100% { transform: translateY(0); } 50% { transform: translateY(-6px); } }
 .bg-illu { position: fixed; top: 0; left: 0; width: 100vw; height: 100vh; z-index: 0; pointer-events: none; animation: gfloat 6s ease-in-out infinite; }
 [data-testid="stMain"] { position: relative; z-index: 1; }
@@ -101,4 +101,4 @@ letter_html = """<div class="secret-letter-box">
 if clicked: st.balloons()
 if clicked: st.snow()
 if clicked: st.markdown(letter_html, unsafe_allow_html=True)
-if clicked: st.markdown(f'<audio autoplay loop preload="auto" style="display:none;"><source src="data:audio/mp4;base64,{b64_audio}" type="audio/mp4"></audio>', unsafe_allow_html=True)
+if clicked: st.audio(audio_bytes, format="audio/mp4", start_time=1, loop=True, autoplay=True)
