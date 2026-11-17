@@ -41,9 +41,6 @@ css = c1 + c2 + c3 + c4 + c5 + c6 + c7 + c8 + c9 + c10 + c11
 
 st.markdown(css + bg_svg + falling_html, unsafe_allow_html=True)
 
-# 1. 趁進度條開始跑之前，先把音檔放進頁面「靜音預熱緩衝」，完全消除下載與解碼空隙
-st.markdown(f'<audio id="bgm" autoplay muted loop preload="auto" style="display:none;"><source src="data:audio/mp4;base64,{b64_audio}" type="audio/mp4"></audio>', unsafe_allow_html=True)
-
 progress_bar = st.progress(0)
 status_placeholder = st.empty()
 
@@ -70,7 +67,7 @@ l4 = "<p>Every day in the future, I also wanna make new memories with u, and jus
 l5 = '<p class="secret-letter-sign">Having u in my life makes everything better. Happy Birthday, babe!</p></div>'
 letter_html = l1 + l2 + l3 + l4 + l5
 
-# 2. 點擊按鈕後進度條跑完的瞬間：直接把已預熱好的音檔解除靜音並從頭播放（0 秒空隙），同時展開信件
+if clicked: st.markdown(f'<audio autoplay loop style="display:none;"><source src="data:audio/mp4;base64,{b64_audio}" type="audio/mp4"></audio>', unsafe_allow_html=True)
+if clicked: st.markdown(letter_html, unsafe_allow_html=True)
 if clicked: st.balloons()
 if clicked: st.snow()
-if clicked: st.markdown(letter_html, unsafe_allow_html=True)
