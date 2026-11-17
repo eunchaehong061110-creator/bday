@@ -2,15 +2,13 @@ import streamlit as st
 import time
 import random
 import base64
-import urllib.parse
 
 st.set_page_config(page_title="For my favorite person ❤️", page_icon="🎂", layout="centered")
 
 # ==========================================
-# 🎨 還原截圖中的可愛矢量背景插畫（雙層虛線愛心、雲朵、菱形星星、弧形虛線）
+# 🎨 可愛矢量背景插畫（雙層虛線愛心、雲朵、菱形星星、弧形虛線）
 # ==========================================
-bg_svg = """
-<svg xmlns="http://w3.org" width="100%" height="100%" viewBox="0 0 1440 900" preserveAspectRatio="xMidYMid slice">
+bg_svg = """<svg xmlns="http://w3.org" width="1440" height="900" viewBox="0 0 1440 900">
   <defs>
     <linearGradient id="bg-grad" x1="0%" y1="0%" x2="100%" y2="100%">
       <stop offset="0%" stop-color="#ffe5ec"/>
@@ -18,43 +16,37 @@ bg_svg = """
       <stop offset="100%" stop-color="#ffc2d1"/>
     </linearGradient>
   </defs>
-  <!-- 粉嫩漸層底色 -->
   <rect width="1440" height="900" fill="url(#bg-grad)"/>
 
-  <!-- 左上角：雙層愛心（外實線 + 內虛線） -->
   <g transform="translate(80, 40) rotate(-12)">
-    <path d="M80 140 C80 140 15 95 15 50 C15 22 38 5 60 5 C73 5 80 15 80 15 C80 15 87 5 100 5 C122 5 145 22 145 50 C145 95 80 140 80 140 Z" fill="none" stroke="#f497b6" stroke-width="2.5" opacity="0.65"/>
-    <path d="M80 126 C80 126 27 88 27 51 C27 30 44 17 61 17 C72 17 80 26 80 26 C80 26 88 17 99 17 C116 17 133 30 133 51 C133 88 80 126 80 126 Z" fill="none" stroke="#f497b6" stroke-width="2" stroke-dasharray="6,6" opacity="0.65"/>
+    <path d="M80 140 C80 140 15 95 15 50 C15 22 38 5 60 5 C73 5 80 15 80 15 C80 15 87 5 100 5 C122 5 145 22 145 50 C145 95 80 140 80 140 Z" fill="none" stroke="#f497b6" stroke-width="2.5" opacity="0.7"/>
+    <path d="M80 126 C80 126 27 88 27 51 C27 30 44 17 61 17 C72 17 80 26 80 26 C80 26 88 17 99 17 C116 17 133 30 133 51 C133 88 80 126 80 126 Z" fill="none" stroke="#f497b6" stroke-width="2" stroke-dasharray="6,6" opacity="0.7"/>
   </g>
 
-  <!-- 右下角：雙層愛心（外實線 + 內虛線） -->
   <g transform="translate(1180, 560) rotate(10)">
-    <path d="M90 160 C90 160 15 108 15 56 C15 24 42 5 67 5 C82 5 90 17 90 17 C90 17 98 5 113 5 C138 5 165 24 165 56 C165 108 90 160 90 160 Z" fill="none" stroke="#f497b6" stroke-width="2.5" opacity="0.65"/>
-    <path d="M90 144 C90 144 29 100 29 57 C29 33 49 18 68 18 C80 18 90 28 90 28 C90 28 100 18 112 18 C131 18 151 33 151 57 C151 100 90 144 90 144 Z" fill="none" stroke="#f497b6" stroke-width="2" stroke-dasharray="6,6" opacity="0.65"/>
+    <path d="M90 160 C90 160 15 108 15 56 C15 24 42 5 67 5 C82 5 90 17 90 17 C90 17 98 5 113 5 C138 5 165 24 165 56 C165 108 90 160 90 160 Z" fill="none" stroke="#f497b6" stroke-width="2.5" opacity="0.7"/>
+    <path d="M90 144 C90 144 29 100 29 57 C29 33 49 18 68 18 C80 18 90 28 90 28 C90 28 100 18 112 18 C131 18 151 33 151 57 C151 100 90 144 90 144 Z" fill="none" stroke="#f497b6" stroke-width="2" stroke-dasharray="6,6" opacity="0.7"/>
   </g>
 
-  <!-- 右上角：可愛雲朵 -->
-  <path d="M1210 150 C1190 150 1175 135 1175 118 C1175 102 1187 89 1203 87 C1210 65 1231 50 1255 50 C1283 50 1306 70 1310 97 C1326 100 1338 113 1338 130 C1338 148 1323 162 1305 162 L1210 162 Z" fill="rgba(255,255,255,0.28)" stroke="#f497b6" stroke-width="2.2" opacity="0.65"/>
+  <path d="M1210 150 C1190 150 1175 135 1175 118 C1175 102 1187 89 1203 87 C1210 65 1231 50 1255 50 C1283 50 1306 70 1310 97 C1326 100 1338 113 1338 130 C1338 148 1323 162 1305 162 L1210 162 Z" fill="rgba(255,255,255,0.35)" stroke="#f497b6" stroke-width="2.2" opacity="0.7"/>
 
-  <!-- 左下角：可愛雲朵 -->
-  <path d="M95 730 C75 730 60 715 60 698 C60 682 72 669 88 667 C95 645 116 630 140 630 C168 630 191 650 195 677 C211 680 223 693 223 710 C223 728 208 742 190 742 L95 742 Z" fill="rgba(255,255,255,0.28)" stroke="#f497b6" stroke-width="2.2" opacity="0.65"/>
+  <path d="M95 730 C75 730 60 715 60 698 C60 682 72 669 88 667 C95 645 116 630 140 630 C168 630 191 650 195 677 C211 680 223 693 223 710 C223 728 208 742 190 742 L95 742 Z" fill="rgba(255,255,255,0.35)" stroke="#f497b6" stroke-width="2.2" opacity="0.7"/>
 
-  <!-- 左右兩側：弧形虛線軌跡 -->
-  <path d="M 30 410 Q 170 360 310 420" fill="none" stroke="#f497b6" stroke-width="2.2" stroke-dasharray="8,8" opacity="0.6"/>
-  <path d="M 1130 410 Q 1270 360 1410 420" fill="none" stroke="#f497b6" stroke-width="2.2" stroke-dasharray="8,8" opacity="0.6"/>
+  <path d="M 30 410 Q 170 360 310 420" fill="none" stroke="#f497b6" stroke-width="2.2" stroke-dasharray="8,8" opacity="0.65"/>
+  <path d="M 1130 410 Q 1270 360 1410 420" fill="none" stroke="#f497b6" stroke-width="2.2" stroke-dasharray="8,8" opacity="0.65"/>
 
-  <!-- 菱形四角星星與小圓點點綴 -->
-  <path d="M280 50 L287 72 L309 79 L287 86 L280 108 L273 86 L251 79 L273 72 Z" fill="#f497b6" opacity="0.55"/>
-  <path d="M1110 180 L1116 198 L1134 204 L1116 210 L1110 228 L1104 210 L1086 204 L1104 198 Z" fill="#f497b6" opacity="0.5"/>
-  <path d="M260 760 L267 782 L289 789 L267 796 L260 818 L253 796 L231 789 L253 782 Z" fill="#f497b6" opacity="0.55"/>
-  <path d="M1070 730 L1075 745 L1090 750 L1075 755 L1070 770 L1065 755 L1050 750 L1065 745 Z" fill="#f497b6" opacity="0.5"/>
-  <circle cx="220" cy="180" r="5" fill="#f497b6" opacity="0.5"/>
-  <circle cx="310" cy="805" r="4" fill="#f497b6" opacity="0.5"/>
-  <circle cx="1160" cy="70" r="4.5" fill="#f497b6" opacity="0.5"/>
-  <circle cx="960" cy="560" r="4" fill="#f497b6" opacity="0.45"/>
-</svg>
-"""
-encoded_svg = urllib.parse.quote(bg_svg)
+  <path d="M280 50 L287 72 L309 79 L287 86 L280 108 L273 86 L251 79 L273 72 Z" fill="#f497b6" opacity="0.6"/>
+  <path d="M1110 180 L1116 198 L1134 204 L1116 210 L1110 228 L1104 210 L1086 204 L1104 198 Z" fill="#f497b6" opacity="0.55"/>
+  <path d="M260 760 L267 782 L289 789 L267 796 L260 818 L253 796 L231 789 L253 782 Z" fill="#f497b6" opacity="0.6"/>
+  <path d="M1070 730 L1075 745 L1090 750 L1075 755 L1070 770 L1065 755 L1050 750 L1065 745 Z" fill="#f497b6" opacity="0.55"/>
+  <circle cx="220" cy="180" r="5" fill="#f497b6" opacity="0.55"/>
+  <circle cx="310" cy="805" r="4" fill="#f497b6" opacity="0.55"/>
+  <circle cx="1160" cy="70" r="4.5" fill="#f497b6" opacity="0.55"/>
+  <circle cx="960" cy="560" r="4" fill="#f497b6" opacity="0.5"/>
+</svg>"""
+
+# 改用 Base64 編碼，確保所有瀏覽器都能 100% 顯示背景插畫
+b64_svg = base64.b64encode(bg_svg.encode("utf-8")).decode("utf-8")
 
 # ==========================================
 # 飄落愛心與花瓣特效
@@ -73,13 +65,18 @@ for _ in range(30):
 
 st.markdown(f"""<style>
 .stApp {{
-    background-image: url("data:image/svg+xml,{encoded_svg}");
-    background-size: cover;
-    background-position: center;
-    background-attachment: fixed;
+    background-color: #ffd6e0 !important;
+    background-image: url("data:image/svg+xml;base64,{b64_svg}") !important;
+    background-size: cover !important;
+    background-position: center center !important;
+    background-repeat: no-repeat !important;
+    background-attachment: fixed !important;
     overflow-x: hidden;
 }}
-header {{visibility: hidden;}}
+header, [data-testid="stHeader"] {{
+    background: transparent !important;
+    visibility: hidden;
+}}
 
 @keyframes fall {{
     0% {{ transform: translateY(-10vh) translateX(0px) rotate(0deg); opacity: 0.9; }}
@@ -105,7 +102,7 @@ header {{visibility: hidden;}}
     text-shadow: 1px 1px 6px rgba(255, 255, 255, 0.8);
 }}
 .love-letter-card {{
-    background: rgba(255, 255, 255, 0.85);
+    background: rgba(255, 255, 255, 0.88);
     backdrop-filter: blur(10px);
     color: #590d22;
     padding: 28px 24px;
@@ -177,7 +174,6 @@ for i in range(100):
     time.sleep(0.02)
 
 progress_bar.empty()
-# 還原截圖上方的 ✨ You & Me ✨ 標題
 status_placeholder.markdown('<div class="status-box">✨ You & Me ✨</div>', unsafe_allow_html=True)
 
 st.balloons()
@@ -195,7 +191,6 @@ if clicked:
     st.balloons()
     st.snow()
 
-    # 保留一號程式碼的 Base64 內嵌並使用隱藏式 HTML5 播放器自動循環播放
     with open("song01.m4a", "rb") as f:
         b64_audio = base64.b64encode(f.read()).decode()
     st.markdown(f"""
