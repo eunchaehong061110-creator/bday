@@ -200,6 +200,6 @@ st.markdown('<div class="love-letter-card">“You are forever in my heart.” �
 st.markdown('<div class="baby-footer">HAPPY BIRTHDAY, MY GIRL. ❤️</div>', unsafe_allow_html=True)
 
 st.write("")
-col1, col2, col3 = st.columns()
+col1, col2, col3 = st.columns(3)
 clicked = col2.button("ポチッとな！\n\nBoop me~ 🐾", use_container_width=True)
 
