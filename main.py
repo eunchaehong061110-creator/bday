@@ -13,18 +13,18 @@ bg_svg = """
   </filter>
 </defs>
 <g transform="translate(65,35) rotate(-14)" filter="url(#glow)">
-  <path d="M95 165 C95 165 15 112 15 58 C15 24 42 5 68 5 C84 5 95 18 95 18 C95 18 106 5 122 5 C148 5 175 24 175 58 C175 112 95 165 95 165 Z" fill="rgba(255,255,255,0.25)" stroke="#e56b96" stroke-width="2.8" stroke-linecap="round"/>
-  <path d="M95 148 C95 148 29 102 29 59 C29 33 50 18 70 18 C83 18 95 29 95 29 C95 29 107 18 120 18 C140 18 161 33 161 59 C161 102 95 148 95 148 Z" fill="none" stroke="#e56b96" stroke-width="2.2" stroke-dasharray="6,7" stroke-linecap="round"/>
+  <path d="M95 165 C95 165 15 112 15 58 C15 24 42 5 68 5 C84 5 95 18 95 18 C95 18 106 5 122 5 C148 5 175 24 175 58 C175 112 95 165 95 165 Z" fill="rgba(255,255,255,0.28)" stroke="#e56b96" stroke-width="2.5" stroke-linecap="round"/>
+  <path d="M95 148 C95 148 29 102 29 59 C29 33 50 18 70 18 C83 18 95 29 95 29 C95 29 107 18 120 18 C140 18 161 33 161 59 C161 102 95 148 95 148 Z" fill="none" stroke="#e56b96" stroke-width="2" stroke-dasharray="6,7" stroke-linecap="round"/>
   <path d="M185 35 C185 35 170 25 170 15 C170 8 175 4 180 4 C183 4 185 7 185 7 C185 7 187 4 190 4 C195 4 200 8 200 15 C200 25 185 35 185 35 Z" fill="#f48fb1" opacity="0.75"/>
 </g>
 <g transform="translate(1155,535) rotate(12)" filter="url(#glow)">
-  <path d="M105 180 C105 180 15 122 15 62 C15 25 45 5 74 5 C92 5 105 19 105 19 C105 19 118 5 136 5 C165 5 195 25 195 62 C195 122 105 180 105 180 Z" fill="rgba(255,255,255,0.25)" stroke="#e56b96" stroke-width="2.8" stroke-linecap="round"/>
-  <path d="M105 162 C105 162 30 112 30 63 C30 34 53 18 76 18 C90 18 105 30 105 30 C105 30 120 18 134 18 C157 18 180 34 180 63 C180 112 105 162 105 162 Z" fill="none" stroke="#e56b96" stroke-width="2.2" stroke-dasharray="6,7" stroke-linecap="round"/>
+  <path d="M105 180 C105 180 15 122 15 62 C15 25 45 5 74 5 C92 5 105 19 105 19 C105 19 118 5 136 5 C165 5 195 25 195 62 C195 122 105 180 105 180 Z" fill="rgba(255,255,255,0.28)" stroke="#e56b96" stroke-width="2.5" stroke-linecap="round"/>
+  <path d="M105 162 C105 162 30 112 30 63 C30 34 53 18 76 18 C90 18 105 30 105 30 C105 30 120 18 134 18 C157 18 180 34 180 63 C180 112 105 162 105 162 Z" fill="none" stroke="#e56b96" stroke-width="2" stroke-dasharray="6,7" stroke-linecap="round"/>
 </g>
-<path d="M-10 430 C70 430 145 390 145 355 C145 330 115 330 115 355 C115 395 195 435 295 395" fill="none" stroke="#e56b96" stroke-width="2.3" stroke-dasharray="7,7" opacity="0.75"/>
-<path d="M1450 430 C1370 430 1295 390 1295 355 C1295 330 1325 330 1325 355 C1325 395 1245 435 1145 395" fill="none" stroke="#e56b96" stroke-width="2.3" stroke-dasharray="7,7" opacity="0.75"/>
-<path d="M1205 150 C1185 150 1170 135 1170 118 C1170 102 1182 89 1198 87 C1205 65 1226 50 1250 50 C1278 50 1301 70 1305 97 C1321 100 1333 113 1333 130 C1333 148 1318 162 1300 162 Z" fill="rgba(255,255,255,0.42)" stroke="#e56b96" stroke-width="2.3" opacity="0.8"/>
-<path d="M110 730 C90 730 75 715 75 698 C75 682 87 669 103 667 C110 645 131 630 155 630 C183 630 206 650 210 677 C226 680 238 693 238 710 C238 728 223 742 205 742 Z" fill="rgba(255,255,255,0.42)" stroke="#e56b96" stroke-width="2.3" opacity="0.8"/>
+<path d="M-10 430 C70 430 145 390 145 355 C145 330 115 330 115 355 C115 395 195 435 295 395" fill="none" stroke="#e56b96" stroke-width="2.2" stroke-dasharray="7,7" opacity="0.7"/>
+<path d="M1450 430 C1370 430 1295 390 1295 355 C1295 330 1325 330 1325 355 C1325 395 1245 435 1145 395" fill="none" stroke="#e56b96" stroke-width="2.2" stroke-dasharray="7,7" opacity="0.7"/>
+<path d="M1205 150 C1185 150 1170 135 1170 118 C1170 102 1182 89 1198 87 C1205 65 1226 50 1250 50 C1278 50 1301 70 1305 97 C1321 100 1333 113 1333 130 C1333 148 1318 162 1300 162 Z" fill="rgba(255,255,255,0.45)" stroke="#e56b96" stroke-width="2.2" opacity="0.8"/>
+<path d="M110 730 C90 730 75 715 75 698 C75 682 87 669 103 667 C110 645 131 630 155 630 C183 630 206 650 210 677 C226 680 238 693 238 710 C238 728 223 742 205 742 Z" fill="rgba(255,255,255,0.45)" stroke="#e56b96" stroke-width="2.2" opacity="0.8"/>
 <g fill="#e56b96" opacity="0.65">
   <path d="M310 55 L317 77 L339 84 L317 91 L310 113 L303 91 L281 84 L303 77 Z"/>
   <path d="M1080 155 L1085 170 L1100 175 L1085 180 L1080 195 L1075 180 L1060 175 L1075 170 Z"/>
@@ -39,23 +39,24 @@ random.seed(520)
 falling_html = "".join(f'<div class="falling-item" style="left:{random.randint(2, 96)}%;font-size:{random.randint(15, 24)}px;animation-duration:{round(random.uniform(7.0, 13.0), 1)}s;animation-delay:{round(random.uniform(-12.0, 0.0), 1)}s;">{random.choice(icons)}</div>' for _ in range(30))
 
 css = """<style>
-.stApp, [data-testid="stAppViewContainer"] { background: linear-gradient(135deg, #ffe5ec 0%, #ffd6e0 50%, #ffc2d1 100%) !important; overflow-x: hidden; }
+@import url('https://googleapis.com');
+.stApp, [data-testid="stAppViewContainer"] { background: radial-gradient(circle at top left, #fff0f4 0%, #ffe0e9 45%, #ffd1df 100%) !important; overflow-x: hidden; }
 header, [data-testid="stHeader"] { background: transparent !important; visibility: hidden; }
 @keyframes gfloat { 0%,100% { transform: translateY(0); } 50% { transform: translateY(-6px); } }
 .bg-illu { position: fixed; top: 0; left: 0; width: 100vw; height: 100vh; z-index: 0; pointer-events: none; animation: gfloat 6s ease-in-out infinite; }
 [data-testid="stMain"] { position: relative; z-index: 1; }
 @keyframes fall { 0% { transform: translateY(-10vh) rotate(0deg); opacity: 0.9; } 100% { transform: translateY(110vh) rotate(360deg); opacity: 0.2; } }
 .falling-item { position: fixed; top: -10%; z-index: 9999; pointer-events: none; animation: fall linear infinite; }
-.status-box { text-align: center; color: #c9184a; font-family: Georgia, serif; font-size: 32px; font-style: italic; font-weight: bold; margin-top: 30px; margin-bottom: 15px; text-shadow: 1px 1px 6px rgba(255,255,255,0.8); }
-.love-letter-card { background: rgba(255,255,255,0.88); backdrop-filter: blur(10px); color: #590d22; padding: 28px 24px; border-radius: 18px; text-align: center; font-family: Georgia, serif; font-size: 22px; font-style: italic; font-weight: bold; box-shadow: 0 10px 25px rgba(201,24,74,0.12); border: 1.5px solid rgba(255,117,143,0.45); margin: 25px auto; }
-.baby-footer { text-align: center; color: #a4133c; font-size: 30px; font-weight: 900; margin-top: 20px; text-shadow: 1px 1px 4px rgba(255,255,255,0.7); }
-.secret-letter-box { background: rgba(255,255,255,0.96); backdrop-filter: blur(12px); color: #590d22; padding: 34px 36px; border-radius: 22px; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; font-size: 16.5px; line-height: 1.9; text-align: left; box-shadow: 0 14px 35px rgba(201,24,74,0.22); border: 2px solid #ffb3c1; border-top: 6px solid #ff4d6d; margin-top: 26px; margin-bottom: 40px; }
-.secret-letter-header { text-align: center; color: #ff4d6d; font-family: Georgia, serif; font-style: italic; font-size: 20px; font-weight: bold; margin-bottom: 18px; letter-spacing: 1px; }
-.secret-letter-box p { margin-bottom: 15px; }
-.secret-letter-sign { text-align: right; font-weight: 800; color: #c9184a; font-size: 18px; margin-top: 16px; margin-bottom: 0 !important; }
-div[data-testid="stProgress"] > div > div > div > div { background-color: #ff4d6d !important; }
-div.stButton > button { background: linear-gradient(90deg, #ff758f 0%, #ff4d6d 100%); color: white !important; border: none; border-radius: 25px; padding: 12px 24px; font-weight: bold; line-height: 1.4; box-shadow: 0 4px 15px rgba(255,77,109,0.35); transition: all 0.3s ease; }
-div.stButton > button:hover { transform: scale(1.03); box-shadow: 0 6px 20px rgba(255,77,109,0.5); }
+.status-box { text-align: center; color: #b52b55; font-family: 'Great Vibes', cursive; font-size: 54px; font-weight: 400; margin-top: 22px; margin-bottom: 10px; text-shadow: 0 2px 12px rgba(255,255,255,0.95); letter-spacing: 2px; }
+.love-letter-card { background: linear-gradient(145deg, rgba(255,252,253,0.92), rgba(255,240,245,0.82)); backdrop-filter: blur(14px); color: #8c1d40; padding: 34px 28px; border-radius: 24px; text-align: center; font-family: 'Playfair Display', Georgia, serif; font-size: 25px; font-style: italic; font-weight: 500; letter-spacing: 0.6px; box-shadow: 0 15px 35px rgba(181,43,85,0.12), inset 0 0 0 1px rgba(255,255,255,0.85); border: 1.5px solid rgba(235,130,162,0.5); margin: 20px auto; }
+.baby-footer { text-align: center; background: linear-gradient(90deg, #a81c46, #d94673, #a81c46); -webkit-background-clip: text; -webkit-text-fill-color: transparent; font-family: 'Playfair Display', serif; font-size: 28px; font-weight: 700; letter-spacing: 2.5px; margin-top: 22px; filter: drop-shadow(0 2px 6px rgba(255,255,255,0.8)); }
+.secret-letter-box { background: linear-gradient(180deg, rgba(255,253,254,0.97) 0%, rgba(255,244,247,0.95) 100%); backdrop-filter: blur(16px); color: #6e1832; padding: 38px 40px; border-radius: 26px; font-family: 'Lora', Georgia, serif; font-size: 17px; line-height: 1.95; text-align: left; box-shadow: 0 18px 45px rgba(181,43,85,0.16), inset 0 0 0 1px rgba(255,255,255,0.9); border: 1.5px solid #f5a3bc; margin-top: 28px; margin-bottom: 45px; }
+.secret-letter-header { text-align: center; color: #c93863; font-family: 'Great Vibes', cursive; font-size: 38px; margin-bottom: 18px; border-bottom: 1px dashed rgba(229,107,150,0.4); padding-bottom: 10px; }
+.secret-letter-box p { margin-bottom: 16px; }
+.secret-letter-sign { text-align: right; font-family: 'Playfair Display', serif; font-style: italic; font-weight: 600; color: #b52b55; font-size: 18.5px; margin-top: 20px; margin-bottom: 0 !important; }
+div[data-testid="stProgress"] > div > div > div > div { background-color: #e0527d !important; }
+div.stButton > button { background: linear-gradient(135deg, #f2799b 0%, #d9436e 100%); color: #fff8fa !important; font-family: 'Lora', serif; letter-spacing: 0.8px; border: 1px solid rgba(255,255,255,0.5); border-radius: 30px; padding: 14px 26px; font-weight: 600; line-height: 1.45; box-shadow: 0 8px 22px rgba(217,67,110,0.3); transition: all 0.35s ease; }
+div.stButton > button:hover { transform: translateY(-2px) scale(1.02); box-shadow: 0 12px 28px rgba(217,67,110,0.45); }
 </style>"""
 
 st.markdown(css + bg_svg + falling_html, unsafe_allow_html=True)
@@ -63,10 +64,10 @@ st.markdown(css + bg_svg + falling_html, unsafe_allow_html=True)
 progress_bar = st.progress(0)
 status_placeholder = st.empty()
 
-_ = list(map(lambda i: (status_placeholder.markdown(f'<div style="text-align:center;color:#ff4d6d;font-weight:600;margin-top:40px;">💖 Loading babe\'s Birthday Surprise... {i + 1}%</div>', unsafe_allow_html=True), progress_bar.progress(i + 1), time.sleep(0.02)), range(100)))
+_ = list(map(lambda i: (status_placeholder.markdown(f'<div style="text-align:center;color:#d9436e;font-family:Lora,serif;font-style:italic;font-size:17px;margin-top:40px;">💖 Loading babe\'s Birthday Surprise... {i + 1}%</div>', unsafe_allow_html=True), progress_bar.progress(i + 1), time.sleep(0.02)), range(100)))
 
 progress_bar.empty()
-status_placeholder.markdown('<div class="status-box">✨ You & Me ✨</div>', unsafe_allow_html=True)
+status_placeholder.markdown('<div class="status-box">You &amp; Me</div>', unsafe_allow_html=True)
 
 st.balloons()
 st.snow()
@@ -79,7 +80,7 @@ col1, col2, col3 = st.columns(3)
 clicked = col2.button("ポチッとな！\n\nBoop me~ 🐾", use_container_width=True)
 
 letter_html = """<div class="secret-letter-box">
-<div class="secret-letter-header">💌 A Little Letter For You 💌</div>
+<div class="secret-letter-header">A Little Letter For You</div>
 <p>This is my first time celebrating your birthday with u. To me, today isn't just about your birthday, it's also a celebration of us.💘</p>
 <p>I still remember that one time u looked so adorable when u blushed looking into my eyes (I freaking felt it). Moments like that actually make me crazy 'bout u even more. I thought to myself, I just really wanted to cuddle with u. O~M~G. 🥺</p>
 <p>Every day in the future, I also wanna make new memories with u, and just hope u can let go of all your stress whenever u're with me.</p>
