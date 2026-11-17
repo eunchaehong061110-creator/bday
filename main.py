@@ -80,7 +80,7 @@ clicked = col2.button("ポチッとな！\n\nBoop me~ 🐾", use_container_width
 
 letter_html = """<div class="secret-letter-box">
 <div class="secret-letter-header">💌 A Little Letter For You 💌</div>
-<p>This is my first time celebrating your birthday with u. To me, today isn't just about your birthday, it's also a celebration of us.</p>
+<p>This is my first time celebrating your birthday with u. To me, today isn't just about your birthday, it's also a celebration of us.💘</p>
 <p>I still remember that one time u looked so adorable when u blushed looking into my eyes (I freaking felt it). Moments like that actually make me crazy 'bout u even more. I thought to myself, I just really wanted to cuddle with u. O~M~G. 🥺</p>
 <p>Every day in the future, I also wanna make new memories with u, and just hope u can let go of all your stress whenever u're with me.</p>
 <p class="secret-letter-sign">Having u in my life makes everything better. Happy Birthday, babe!</p>
