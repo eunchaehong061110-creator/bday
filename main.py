@@ -6,42 +6,99 @@ import base64
 st.set_page_config(page_title="For my favorite person ❤️", page_icon="🎂", layout="centered")
 
 # ==========================================
-# 🎨 可愛矢量背景插畫（直接作為獨立底層 HTML，絕對不被蓋掉）
+# 🎨 夢幻浪漫升級版矢量插畫（圓潤雙層縫線愛心、愛心迴圈虛線軌跡、垂墜星星雲朵、柔和微光）
 # ==========================================
 bg_illustration_html = """
 <div class="bg-illustration">
 <svg xmlns="http://w3.org" width="100%" height="100%" viewBox="0 0 1440 900" preserveAspectRatio="xMidYMid slice">
-  <!-- 左上角：雙層愛心（外實線 + 內虛線） -->
-  <g transform="translate(70, 40) rotate(-12)">
-    <path d="M80 140 C80 140 15 95 15 50 C15 22 38 5 60 5 C73 5 80 15 80 15 C80 15 87 5 100 5 C122 5 145 22 145 50 C145 95 80 140 80 140 Z" fill="none" stroke="#e87a9f" stroke-width="2.8" opacity="0.75"/>
-    <path d="M80 126 C80 126 27 88 27 51 C27 30 44 17 61 17 C72 17 80 26 80 26 C80 26 88 17 99 17 C116 17 133 30 133 51 C133 88 80 126 80 126 Z" fill="none" stroke="#e87a9f" stroke-width="2.2" stroke-dasharray="6,6" opacity="0.75"/>
+  <defs>
+    <!-- 柔和粉色發光濾鏡 -->
+    <filter id="soft-glow" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="3" result="blur" />
+      <feComposite in="SourceGraphic" in2="blur" operator="over" />
+    </filter>
+    <!-- 雲朵半透明漸層 -->
+    <linearGradient id="cloud-grad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#ffffff" stop-opacity="0.65"/>
+      <stop offset="100%" stop-color="#ffe5ec" stop-opacity="0.25"/>
+    </linearGradient>
+  </defs>
+
+  <!-- 1. 左上角：圓潤手繪風雙層愛心（外實線 + 內縫線虛線）+ 旁邊成對小愛心 -->
+  <g transform="translate(65, 35) rotate(-14)" filter="url(#soft-glow)">
+    <path d="M95 165 C95 165 15 112 15 58 C15 24 42 5 68 5 C84 5 95 18 95 18 C95 18 106 5 122 5 C148 5 175 24 175 58 C175 112 95 165 95 165 Z" 
+          fill="rgba(255,255,255,0.22)" stroke="#e56b96" stroke-width="2.8" stroke-linecap="round"/>
+    <path d="M95 148 C95 148 29 102 29 59 C29 33 50 18 70 18 C83 18 95 29 95 29 C95 29 107 18 120 18 C140 18 161 33 161 59 C161 102 95 148 95 148 Z" 
+          fill="none" stroke="#e56b96" stroke-width="2.2" stroke-dasharray="6,7" stroke-linecap="round"/>
+    <!-- 旁邊依偎的兩顆迷你小愛心 -->
+    <path d="M185 35 C185 35 170 25 170 15 C170 8 175 4 180 4 C183 4 185 7 185 7 C185 7 187 4 190 4 C195 4 200 8 200 15 C200 25 185 35 185 35 Z" 
+          fill="#f48fb1" opacity="0.75"/>
+    <path d="M208 58 C208 58 198 51 198 44 C198 39 201 37 205 37 C207 37 208 39 208 39 C208 39 209 37 211 37 C215 37 218 39 218 44 C218 51 208 58 208 58 Z" 
+          fill="#f48fb1" opacity="0.6"/>
   </g>
 
-  <!-- 右下角：雙層愛心（外實線 + 內虛線） -->
-  <g transform="translate(1170, 550) rotate(10)">
-    <path d="M90 160 C90 160 15 108 15 56 C15 24 42 5 67 5 C82 5 90 17 90 17 C90 17 98 5 113 5 C138 5 165 24 165 56 C165 108 90 160 90 160 Z" fill="none" stroke="#e87a9f" stroke-width="2.8" opacity="0.75"/>
-    <path d="M90 144 C90 144 29 100 29 57 C29 33 49 18 68 18 C80 18 90 28 90 28 C90 28 100 18 112 18 C131 18 151 33 151 57 C151 100 90 144 90 144 Z" fill="none" stroke="#e87a9f" stroke-width="2.2" stroke-dasharray="6,6" opacity="0.75"/>
+  <!-- 2. 右下角：大雙層浪漫愛心（外實線 + 內虛線）+ 虛線光環 -->
+  <g transform="translate(1155, 535) rotate(12)" filter="url(#soft-glow)">
+    <path d="M105 180 C105 180 15 122 15 62 C15 25 45 5 74 5 C92 5 105 19 105 19 C105 19 118 5 136 5 C165 5 195 25 195 62 C195 122 105 180 105 180 Z" 
+          fill="rgba(255,255,255,0.22)" stroke="#e56b96" stroke-width="2.8" stroke-linecap="round"/>
+    <path d="M105 162 C105 162 30 112 30 63 C30 34 53 18 76 18 C90 18 105 30 105 30 C105 30 120 18 134 18 C157 18 180 34 180 63 C180 112 105 162 105 162 Z" 
+          fill="none" stroke="#e56b96" stroke-width="2.2" stroke-dasharray="6,7" stroke-linecap="round"/>
+    <!-- 左側小愛心點綴 -->
+    <path d="M-10 120 C-10 120 -25 110 -25 100 C-25 93 -20 89 -15 89 C-12 89 -10 92 -10 92 C-10 92 -8 89 -5 89 C0 89 5 93 5 100 C5 110 -10 120 -10 120 Z" 
+          fill="#f48fb1" opacity="0.7"/>
   </g>
 
-  <!-- 右上角：可愛雲朵 -->
-  <path d="M1210 150 C1190 150 1175 135 1175 118 C1175 102 1187 89 1203 87 C1210 65 1231 50 1255 50 C1283 50 1306 70 1310 97 C1326 100 1338 113 1338 130 C1338 148 1323 162 1305 162 L1210 162 Z" fill="rgba(255,255,255,0.35)" stroke="#e87a9f" stroke-width="2.4" opacity="0.75"/>
+  <!-- 3. 左側：打圈圈的愛心虛線飛行軌跡（Loop-de-loop） -->
+  <g opacity="0.75">
+    <path d="M -10 430 C 70 430, 145 390, 145 355 C 145 330, 115 330, 115 355 C 115 395, 195 435, 295 395" 
+          fill="none" stroke="#e56b96" stroke-width="2.3" stroke-dasharray="7,7" stroke-linecap="round"/>
+    <!-- 軌跡終點的小愛心 -->
+    <path d="M312 396 C312 396 300 388 300 380 C300 375 304 372 308 372 C310 372 312 374 312 374 C312 374 314 372 316 372 C320 372 324 375 324 380 C324 388 312 396 312 396 Z" 
+          fill="#e56b96" transform="rotate(20 312 384)"/>
+  </g>
 
-  <!-- 左下角：可愛雲朵 -->
-  <path d="M95 730 C75 730 60 715 60 698 C60 682 72 669 88 667 C95 645 116 630 140 630 C168 630 191 650 195 677 C211 680 223 693 223 710 C223 728 208 742 190 742 L95 742 Z" fill="rgba(255,255,255,0.35)" stroke="#e87a9f" stroke-width="2.4" opacity="0.75"/>
+  <!-- 4. 右側：對稱打圈圈的愛心虛線飛行軌跡 -->
+  <g opacity="0.75">
+    <path d="M 1450 430 C 1370 430, 1295 390, 1295 355 C 1295 330, 1325 330, 1325 355 C 1325 395, 1245 435, 1145 395" 
+          fill="none" stroke="#e56b96" stroke-width="2.3" stroke-dasharray="7,7" stroke-linecap="round"/>
+    <!-- 軌跡終點的小愛心 -->
+    <path d="M1128 396 C1128 396 1116 388 1116 380 C1116 375 1120 372 1124 372 C1126 372 1128 374 1128 374 C1128 374 1130 372 1132 372 C1136 372 1140 375 1140 380 C1140 388 1128 396 1128 396 Z" 
+          fill="#e56b96" transform="rotate(-20 1128 384)"/>
+  </g>
 
-  <!-- 左右兩側：弧形虛線軌跡 -->
-  <path d="M 30 410 Q 170 360 310 420" fill="none" stroke="#e87a9f" stroke-width="2.4" stroke-dasharray="8,8" opacity="0.7"/>
-  <path d="M 1130 410 Q 1270 360 1410 420" fill="none" stroke="#e87a9f" stroke-width="2.4" stroke-dasharray="8,8" opacity="0.7"/>
+  <!-- 5. 右上角：蓬鬆雙層雲朵 + 垂墜小星星 -->
+  <g transform="translate(1160, 45)" opacity="0.8">
+    <path d="M45 105 C25 105 10 90 10 73 C10 57 22 44 38 42 C45 20 66 5 90 5 C118 5 141 25 145 52 C161 55 173 68 173 85 C173 103 158 117 140 117 L45 117 Z" 
+          fill="url(#cloud-grad)" stroke="#e56b96" stroke-width="2.3"/>
+    <!-- 雲朵垂墜虛線與小星星 -->
+    <line x1="65" y1="117" x2="65" y2="148" stroke="#e56b96" stroke-width="1.8" stroke-dasharray="4,4"/>
+    <path d="M65 148 L69 158 L79 162 L69 166 L65 176 L61 166 L51 162 L61 158 Z" fill="#f48fb1"/>
+    <line x1="120" y1="117" x2="120" y2="138" stroke="#e56b96" stroke-width="1.8" stroke-dasharray="4,4"/>
+    <circle cx="120" cy="144" r="4" fill="#f48fb1"/>
+  </g>
 
-  <!-- 菱形四角星星與小圓點點綴 -->
-  <path d="M280 50 L287 72 L309 79 L287 86 L280 108 L273 86 L251 79 L273 72 Z" fill="#e87a9f" opacity="0.65"/>
-  <path d="M1110 180 L1116 198 L1134 204 L1116 210 L1110 228 L1104 210 L1086 204 L1104 198 Z" fill="#e87a9f" opacity="0.6"/>
-  <path d="M260 760 L267 782 L289 789 L267 796 L260 818 L253 796 L231 789 L253 782 Z" fill="#e87a9f" opacity="0.65"/>
-  <path d="M1070 730 L1075 745 L1090 750 L1075 755 L1070 770 L1065 755 L1050 750 L1065 745 Z" fill="#e87a9f" opacity="0.6"/>
-  <circle cx="220" cy="180" r="5" fill="#e87a9f" opacity="0.6"/>
-  <circle cx="310" cy="805" r="4" fill="#e87a9f" opacity="0.6"/>
-  <circle cx="1160" cy="70" r="4.5" fill="#e87a9f" opacity="0.6"/>
-  <circle cx="960" cy="560" r="4" fill="#e87a9f" opacity="0.55"/>
+  <!-- 6. 左下角：蓬鬆雙層雲朵 + 垂墜小愛心 -->
+  <g transform="translate(65, 625)" opacity="0.8">
+    <path d="M45 105 C25 105 10 90 10 73 C10 57 22 44 38 42 C45 20 66 5 90 5 C118 5 141 25 145 52 C161 55 173 68 173 85 C173 103 158 117 140 117 L45 117 Z" 
+          fill="url(#cloud-grad)" stroke="#e56b96" stroke-width="2.3"/>
+    <!-- 雲朵垂墜虛線與小愛心 -->
+    <line x1="95" y1="117" x2="95" y2="145" stroke="#e56b96" stroke-width="1.8" stroke-dasharray="4,4"/>
+    <path d="M95 162 C95 162 85 155 85 148 C85 144 88 141 91 141 C93 141 95 143 95 143 C95 143 97 141 99 141 C102 141 105 144 105 148 C105 155 95 162 95 162 Z" fill="#f48fb1"/>
+  </g>
+
+  <!-- 7. 散落的閃亮四角星芒與夢幻泡泡圓點 -->
+  <g fill="#e56b96" opacity="0.65">
+    <path d="M310 55 L317 77 L339 84 L317 91 L310 113 L303 91 L281 84 L303 77 Z"/>
+    <path d="M1080 155 L1085 170 L1100 175 L1085 180 L1080 195 L1075 180 L1060 175 L1075 170 Z"/>
+    <path d="M295 755 L302 777 L324 784 L302 791 L295 813 L288 791 L266 784 L288 777 Z"/>
+    <path d="M1040 740 L1046 758 L1064 764 L1046 770 L1040 788 L1034 770 L1016 764 L1034 758 Z"/>
+  </g>
+  <!-- 空心小圓圈與實心圓點增加空氣感 -->
+  <circle cx="255" cy="155" r="5" fill="#f48fb1" opacity="0.65"/>
+  <circle cx="345" cy="130" r="6" fill="none" stroke="#e56b96" stroke-width="1.8" opacity="0.6"/>
+  <circle cx="1115" cy="80" r="5" fill="none" stroke="#e56b96" stroke-width="1.8" opacity="0.6"/>
+  <circle cx="350" cy="800" r="4.5" fill="#f48fb1" opacity="0.65"/>
+  <circle cx="990" cy="610" r="5" fill="none" stroke="#e56b96" stroke-width="1.8" opacity="0.55"/>
 </svg>
 </div>
 """
@@ -71,7 +128,12 @@ header, [data-testid="stHeader"] {{
     visibility: hidden;
 }}
 
-/* 獨立的靜止插畫底層 */
+/* 夢幻呼吸微浮動動畫，讓插畫像繪本一樣有生命力 */
+@keyframes gentle-float {{
+    0%, 100% {{ transform: translateY(0px) scale(1); opacity: 0.92; }}
+    50% {{ transform: translateY(-6px) scale(1.008); opacity: 1; }}
+}}
+
 .bg-illustration {{
     position: fixed;
     top: 0;
@@ -80,9 +142,9 @@ header, [data-testid="stHeader"] {{
     height: 100vh;
     z-index: 0;
     pointer-events: none;
+    animation: gentle-float 6s ease-in-out infinite;
 }}
 
-/* 確保主要文字卡片在插畫層之上 */
 [data-testid="stMain"] {{
     position: relative;
     z-index: 1;
@@ -169,49 +231,3 @@ div.stButton > button {{
     transition: all 0.3s ease;
 }}
 div.stButton > button:hover {{
-    transform: scale(1.03);
-    box-shadow: 0 6px 20px rgba(255, 77, 109, 0.5);
-}}
-</style>{bg_illustration_html}{falling_html}""", unsafe_allow_html=True)
-
-progress_bar = st.progress(0)
-status_placeholder = st.empty()
-
-for i in range(100):
-    status_placeholder.markdown(f'<div style="text-align:center;color:#ff4d6d;font-weight:600;margin-top:40px;">💖 Loading babe\'s Birthday Surprise... {i + 1}%</div>',
-                                unsafe_allow_html=True)
-    progress_bar.progress(i + 1)
-    time.sleep(0.02)
-
-progress_bar.empty()
-status_placeholder.markdown('<div class="status-box">✨ You & Me ✨</div>', unsafe_allow_html=True)
-
-st.balloons()
-st.snow()
-
-st.markdown("""<div class="love-letter-card">“You are forever in my heart.” ❤️</div>""", unsafe_allow_html=True)
-st.markdown('<div class="baby-footer">HAPPY BIRTHDAY, MY GIRL. ❤️</div>', unsafe_allow_html=True)
-
-st.write("")
-col1, col2, col3 = st.columns([1, 2, 1])
-with col2:
-    clicked = st.button("ポチッとな！\n\nBoop me~ 🐾", use_container_width=True)
-
-if clicked:
-    st.balloons()
-    st.snow()
-
-    with open("song01.m4a", "rb") as f:
-        b64_audio = base64.b64encode(f.read()).decode()
-    st.markdown(f"""
-        <audio autoplay loop style="display:none;">
-            <source src="data:audio/mp4;base64,{b64_audio}" type="audio/mp4">
-        </audio>
-    """, unsafe_allow_html=True)
-
-    st.markdown("""<div class="secret-letter-box">
-<p>This is my first time celebrating your birthday with u. To me, today isn't just about your birthday, it's also about us being together for 5 months.</p>
-<p>I still remember that one time u looked so adorable when u blushed looking into my eyes (I freaking felt it). Moments like that actually make me crazy 'bout u even more. I thought to myself, I just really wanted to cuddle with u. O~M~G. 🥺</p>
-<p>Every day in the future, I also wanna make new memories with u, and just hope u can let go of all your stress whenever u're with me.</p>
-<p class="secret-letter-sign">Having u in my life makes everything better. Happy Birthday, babe!</p>
-</div>""", unsafe_allow_html=True)
