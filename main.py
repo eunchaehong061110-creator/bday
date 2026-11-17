@@ -48,9 +48,11 @@ css = """<style>
 @import url('https://googleapis.com');
 .stApp, [data-testid="stAppViewContainer"] { background: radial-gradient(circle at top left, #fff0f4 0%, #ffe0e9 45%, #ffd1df 100%) !important; overflow-x: hidden; }
 header, [data-testid="stHeader"] { background: transparent !important; visibility: hidden; }
+/* 讓全螢幕氣球與雪花畫布不擋住按鈕點擊 */
+[data-testid="stDecoration"], canvas, .stBalloons, .stSnow { pointer-events: none !important; }
 @keyframes gfloat { 0%,100% { transform: translateY(0); } 50% { transform: translateY(-6px); } }
 .bg-illu { position: fixed; top: 0; left: 0; width: 100vw; height: 100vh; z-index: 0; pointer-events: none; animation: gfloat 6s ease-in-out infinite; }
-[data-testid="stMain"] { position: relative; z-index: 1; }
+[data-testid="stMain"] { position: relative; z-index: 10; }
 @keyframes fall { 0% { transform: translateY(-10vh) rotate(0deg); opacity: 0.9; } 100% { transform: translateY(110vh) rotate(360deg); opacity: 0.2; } }
 .falling-item { position: fixed; top: -10%; z-index: 9999; pointer-events: none; animation: fall linear infinite; }
 .title-wrap { display: flex; align-items: center; justify-content: center; gap: 16px; margin-top: 22px; margin-bottom: 10px; }
@@ -65,7 +67,8 @@ header, [data-testid="stHeader"] { background: transparent !important; visibilit
 .secret-letter-box p { margin-bottom: 16px; }
 .secret-letter-sign { text-align: right; font-family: 'Playfair Display', serif; font-style: italic; font-weight: 600; color: #b52b55; font-size: 18.5px; margin-top: 20px; margin-bottom: 0 !important; }
 div[data-testid="stProgress"] > div > div > div > div { background-color: #e0527d !important; }
-div.stButton > button { background: linear-gradient(135deg, #f2799b 0%, #d9436e 100%); color: #fff8fa !important; font-family: 'Lora', serif; letter-spacing: 0.8px; border: 1px solid rgba(255,255,255,0.5); border-radius: 30px; padding: 14px 26px; font-weight: 600; line-height: 1.45; box-shadow: 0 8px 22px rgba(217,67,110,0.3); transition: all 0.35s ease; }
+div.stButton { position: relative; z-index: 99999 !important; }
+div.stButton > button { background: linear-gradient(135deg, #f2799b 0%, #d9436e 100%); color: #fff8fa !important; font-family: 'Lora', serif; letter-spacing: 0.8px; border: 1px solid rgba(255,255,255,0.5); border-radius: 30px; padding: 14px 26px; font-weight: 600; line-height: 1.45; box-shadow: 0 8px 22px rgba(217,67,110,0.3); transition: all 0.35s ease; cursor: pointer !important; }
 div.stButton > button:hover { transform: translateY(-2px) scale(1.02); box-shadow: 0 12px 28px rgba(217,67,110,0.45); }
 </style>"""
 
@@ -95,6 +98,3 @@ letter_html = """<div class="secret-letter-box">
 <p>This is my first time celebrating your birthday with u. To me, today isn't just about your birthday, it's also a celebration of us.💘</p>
 <p>I still remember that one time u looked so adorable when u blushed looking into my eyes (I freaking felt it). Moments like that actually make me crazy 'bout u even more. I thought to myself, I just really wanted to cuddle with u. O~M~G. 🥺</p>
 <p>Every day in the future, I also wanna make new memories with u, and just hope u can let go of all your stress whenever u're with me.</p>
-<p class="secret-letter-sign">Having u in my life makes everything better. Happy Birthday, babe!</p>
-</div>"""
-
