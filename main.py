@@ -47,7 +47,11 @@ header, [data-testid="stHeader"] { background: transparent !important; visibilit
 [data-testid="stMain"] { position: relative; z-index: 1; }
 @keyframes fall { 0% { transform: translateY(-10vh) rotate(0deg); opacity: 0.9; } 100% { transform: translateY(110vh) rotate(360deg); opacity: 0.2; } }
 .falling-item { position: fixed; top: -10%; z-index: 9999; pointer-events: none; animation: fall linear infinite; }
-.status-box { text-align: center; color: #b52b55; font-family: 'Great Vibes', cursive; font-size: 54px; font-weight: 400; margin-top: 22px; margin-bottom: 10px; text-shadow: 0 2px 12px rgba(255,255,255,0.95); letter-spacing: 2px; }
+.title-wrap { display: flex; align-items: center; justify-content: center; gap: 16px; margin-top: 22px; margin-bottom: 10px; }
+.title-line-l { width: 85px; height: 1.5px; background: linear-gradient(90deg, transparent, #e06388); position: relative; }
+.title-line-r { width: 85px; height: 1.5px; background: linear-gradient(270deg, transparent, #e06388); position: relative; }
+.title-ornament { color: #d94673; font-size: 16px; letter-spacing: 4px; opacity: 0.85; text-shadow: 0 0 8px rgba(255,255,255,0.9); }
+.status-box { text-align: center; color: #b52b55; font-family: 'Great Vibes', cursive; font-size: 54px; font-weight: 400; text-shadow: 0 2px 12px rgba(255,255,255,0.95); letter-spacing: 2px; line-height: 1.1; }
 .love-letter-card { background: linear-gradient(145deg, rgba(255,252,253,0.92), rgba(255,240,245,0.82)); backdrop-filter: blur(14px); color: #8c1d40; padding: 34px 28px; border-radius: 24px; text-align: center; font-family: 'Playfair Display', Georgia, serif; font-size: 25px; font-style: italic; font-weight: 500; letter-spacing: 0.6px; box-shadow: 0 15px 35px rgba(181,43,85,0.12), inset 0 0 0 1px rgba(255,255,255,0.85); border: 1.5px solid rgba(235,130,162,0.5); margin: 20px auto; }
 .baby-footer { text-align: center; background: linear-gradient(90deg, #a81c46, #d94673, #a81c46); -webkit-background-clip: text; -webkit-text-fill-color: transparent; font-family: 'Playfair Display', serif; font-size: 28px; font-weight: 700; letter-spacing: 2.5px; margin-top: 22px; filter: drop-shadow(0 2px 6px rgba(255,255,255,0.8)); }
 .secret-letter-box { background: linear-gradient(180deg, rgba(255,253,254,0.97) 0%, rgba(255,244,247,0.95) 100%); backdrop-filter: blur(16px); color: #6e1832; padding: 38px 40px; border-radius: 26px; font-family: 'Lora', Georgia, serif; font-size: 17px; line-height: 1.95; text-align: left; box-shadow: 0 18px 45px rgba(181,43,85,0.16), inset 0 0 0 1px rgba(255,255,255,0.9); border: 1.5px solid #f5a3bc; margin-top: 28px; margin-bottom: 45px; }
@@ -67,7 +71,8 @@ status_placeholder = st.empty()
 _ = list(map(lambda i: (status_placeholder.markdown(f'<div style="text-align:center;color:#d9436e;font-family:Lora,serif;font-style:italic;font-size:17px;margin-top:40px;">💖 Loading babe\'s Birthday Surprise... {i + 1}%</div>', unsafe_allow_html=True), progress_bar.progress(i + 1), time.sleep(0.02)), range(100)))
 
 progress_bar.empty()
-status_placeholder.markdown('<div class="status-box">You &amp; Me</div>', unsafe_allow_html=True)
+title_html = '<div class="title-wrap"><span class="title-line-l"></span><span class="title-ornament">✦ ♡</span><span class="status-box">You &amp; Me</span><span class="title-ornament">♡ ✦</span><span class="title-line-r"></span></div>'
+status_placeholder.markdown(title_html, unsafe_allow_html=True)
 
 st.balloons()
 st.snow()
