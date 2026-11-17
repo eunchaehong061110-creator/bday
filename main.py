@@ -41,24 +41,25 @@ css = c1 + c2 + c3 + c4 + c5 + c6 + c7 + c8 + c9 + c10 + c11
 
 st.markdown(css + bg_svg + falling_html, unsafe_allow_html=True)
 
-if "done_load" not in st.session_state: st.session_state.done_load = False
-
-progress_bar = st.progress(0) if not st.session_state.done_load else None
+# 每次重跑都先建立進度條（包含點擊按鈕後也會正常重跑進度條）
+progress_bar = st.progress(0)
 status_placeholder = st.empty()
 
-if not st.session_state.done_load: _ = list(map(lambda i: (status_placeholder.markdown(f'<div style="text-align:center;color:#d9436e;font-family:Lora,serif;font-style:italic;font-size:17px;margin-top:40px;">💖 Loading babe\'s Birthday Surprise... {i + 1}%</div>', unsafe_allow_html=True), progress_bar.progress(i + 1), time.sleep(0.02)), range(100))); progress_bar.empty(); st.session_state.done_load = True
+_ = list(map(lambda i: (status_placeholder.markdown(f'<div style="text-align:center;color:#d9436e;font-family:Lora,serif;font-style:italic;font-size:17px;margin-top:40px;">💖 Loading babe\'s Birthday Surprise... {i + 1}%</div>', unsafe_allow_html=True), progress_bar.progress(i + 1), time.sleep(0.02)), range(100)))
 
+progress_bar.empty()
 title_html = '<div class="title-wrap"><span class="title-line-l"></span><span class="title-ornament">✦ ♡</span><span class="status-box">You &amp; Me</span><span class="title-ornament">♡ ✦</span><span class="title-line-r"></span></div>'
 status_placeholder.markdown(title_html, unsafe_allow_html=True)
 
-if "first_fx" not in st.session_state: st.balloons(); st.snow(); st.session_state.first_fx = True
+st.balloons()
+st.snow()
 
 st.markdown('<div class="love-letter-card">“You are forever in my heart.” ❤️</div>', unsafe_allow_html=True)
 st.markdown('<div class="baby-footer">HAPPY BIRTHDAY, MY GIRL. ❤️</div>', unsafe_allow_html=True)
 
 st.write("")
 col1, col2, col3 = st.columns(3)
-clicked = col2.button("ポチッとな！\n\nBoop me~ 🐾", key="boop_btn", use_container_width=True)
+clicked = col2.button("ポチッとな！\n\nBoop me~ 🐾", use_container_width=True)
 
 l1 = '<div class="secret-letter-box"><div class="secret-letter-header">A Little Letter For You</div>'
 l2 = "<p>This is my first time celebrating your birthday with u. To me, today isn't just about your birthday, it's also a celebration of us.💘</p>"
@@ -67,4 +68,7 @@ l4 = "<p>Every day in the future, I also wanna make new memories with u, and jus
 l5 = '<p class="secret-letter-sign">Having u in my life makes everything better. Happy Birthday, babe!</p></div>'
 letter_html = l1 + l2 + l3 + l4 + l5
 
+if clicked: st.balloons()
+if clicked: st.snow()
 if clicked: st.markdown(letter_html, unsafe_allow_html=True)
+if clicked: st.markdown(f'<audio autoplay loop style="display:none;"><source src="data:audio/mp4;base64,{b64_audio}" type="audio/mp4"></audio>', unsafe_allow_html=True)
