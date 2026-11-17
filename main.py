@@ -88,7 +88,7 @@ st.markdown('<div class="baby-footer">HAPPY BIRTHDAY, MY GIRL. ❤️</div>', un
 
 st.write("")
 col1, col2, col3 = st.columns(3)
-clicked = col2.button("ポチッとな！\n\nBoop me~ 🐾", use_container_width=True)
+clicked = col2.button("ポチッとな！\n\nBoop me~ 🐾", key="boop_btn", use_container_width=True)
 
 letter_html = """<div class="secret-letter-box">
 <div class="secret-letter-header">A Little Letter For You</div>
