@@ -74,7 +74,7 @@ st.markdown(css + bg_svg + falling_html, unsafe_allow_html=True)
 progress_bar = st.progress(0)
 status_placeholder = st.empty()
 
-_ = list(map(lambda i: (status_placeholder.markdown(f'<div style="text-align:center;color:#d9436e;font-family:Lora,serif;font-style:italic;font-size:17px;margin-top:40px;">💖 Loading babe\'s Birthday Surprise... {i + 1}%</div>', unsafe_allow_html=True), progress_bar.progress(i + 1), time.sleep(0.02)), range(100)))
+_ = list(map(lambda i: (status_placeholder.markdown(f'<div style="text-align:center;color:#d9436e;font-family:Lora,serif;font-style:italic;font-size:17px;margin-top:40px;">💖 Loading babe\'s Birthday Surprise... {i + 1}%</div>', unsafe_allow_html=True), progress_bar.progress(i + 1), time.sleep(0.015)), range(100)))
 
 progress_bar.empty()
 title_html = '<div class="title-wrap"><span class="title-line-l"></span><span class="title-ornament">✦ ♡</span><span class="status-box">You &amp; Me</span><span class="title-ornament">♡ ✦</span><span class="title-line-r"></span></div>'
@@ -101,4 +101,4 @@ letter_html = """<div class="secret-letter-box">
 if clicked: st.balloons()
 if clicked: st.snow()
 if clicked: st.markdown(letter_html, unsafe_allow_html=True)
-if clicked: st.markdown(f'<audio autoplay loop style="display:none;"><source src="data:audio/mp4;base64,{b64_audio}#t=1" type="audio/mp4"></audio>', unsafe_allow_html=True)
+if clicked: st.markdown(f'<audio autoplay loop style="display:none;"><source src="data:audio/mp4;base64,{b64_audio}" type="audio/mp4"></audio>', unsafe_allow_html=True)
