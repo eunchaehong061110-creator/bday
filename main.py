@@ -2,6 +2,7 @@ import streamlit as st
 import time
 import random
 import base64
+import glob
 
 st.set_page_config(page_title="For my favorite person ❤️", page_icon="🎂", layout="centered")
 
@@ -203,3 +204,4 @@ st.write("")
 col1, col2, col3 = st.columns(3)
 clicked = col2.button("ポチッとな！\n\nBoop me~ 🐾", use_container_width=True)
 
+audio_files = glob.glob("**/song01.m4a", recursive=True)
