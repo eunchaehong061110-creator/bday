@@ -3,7 +3,7 @@ import time
 import random
 import base64
 
-st.set_page_config(page_title="For my favorite person ❤️", page_icon="🎂", layout="centered")
+st.set_page_config(page_title="For my loml ❤️", page_icon="🎂", layout="centered")
 
 bg_svg = """
 <div class="bg-illu"><svg xmlns="http://w3.org" width="100%" height="100%" viewBox="0 0 1440 900" preserveAspectRatio="xMidYMid slice">
