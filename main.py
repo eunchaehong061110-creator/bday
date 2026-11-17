@@ -67,7 +67,9 @@ l4 = "<p>Every day in the future, I also wanna make new memories with u, and jus
 l5 = '<p class="secret-letter-sign">Having u in my life makes everything better. Happy Birthday, babe!</p></div>'
 letter_html = l1 + l2 + l3 + l4 + l5
 
+# 先送出音樂讓瀏覽器開始解碼，延遲 1 秒等聲音出來的瞬間再彈出信件與特效
 if clicked: st.markdown(f'<audio autoplay loop style="display:none;"><source src="data:audio/mp4;base64,{b64_audio}" type="audio/mp4"></audio>', unsafe_allow_html=True)
-if clicked: st.markdown(letter_html, unsafe_allow_html=True)
+if clicked: time.sleep(1.0)
 if clicked: st.balloons()
 if clicked: st.snow()
+if clicked: st.markdown(letter_html, unsafe_allow_html=True)
